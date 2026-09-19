@@ -1,4 +1,4 @@
-# Dockerfile for building EEZ projects with Emscripten
+# Dockerfile for building Flobo Display projects with Emscripten
 FROM emscripten/emsdk:4.0.20
 
 # Install additional dependencies

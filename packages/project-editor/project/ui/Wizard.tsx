@@ -2890,7 +2890,7 @@ class FileBrowserInput extends React.Component<{
         const result = await dialog.showOpenDialog(getCurrentWindow(), {
             properties: ["openFile"],
             filters: [
-                { name: "EEZ Project", extensions: ["eez-project"] },
+                { name: "Flobo Display Project", extensions: ["eez-project"] },
                 { name: "All Files", extensions: ["*"] }
             ]
         });
@@ -2949,7 +2949,7 @@ export async function confirmOverwrite(description: string) {
 
     let opts: Electron.MessageBoxOptions = {
         type: "warning",
-        title: "EEZ Studio",
+        title: "Flobo Display",
         message: "Overwite?",
         detail: description,
         noLink: true,

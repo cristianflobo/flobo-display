@@ -599,7 +599,7 @@ class ScrapbookManagerModel {
             properties: ["openFile"],
             filters: [
                 {
-                    name: "EEZ Scrapbook files",
+                    name: "Flobo Display Scrapbook files",
                     extensions: ["eez-scrapbook"]
                 },
                 { name: "All Files", extensions: ["*"] }

@@ -1,5 +1,5 @@
 {
-  description = "Cross-platform visual development tool and SCPI instrument controller";
+  description = "Flobo Display: cross-platform visual development tool and SCPI instrument controller (fork of EEZ Studio)";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-21.05";
@@ -35,8 +35,8 @@
       supportedSystems = defaultSystems;
       commonArgs = {
         version = getUnstableVersion self.lastModifiedDate;
-        homepage = "https://github.com/eez-open/studio";
-        downloadPage = "https://github.com/eez-open/studio/releases";
+        homepage = "https://github.com/cristianflobo/flobo-display";
+        downloadPage = "https://github.com/cristianflobo/flobo-display/releases";
         changelog = null;
         maintainers = [
           {
@@ -50,7 +50,7 @@
       };
 
       derivations = {
-        eez-studio = import ./nix/eez-studio.nix commonArgs;
+        flobo-display = import ./nix/flobo-display.nix commonArgs;
       };
     in
     {
@@ -60,7 +60,7 @@
           nix-utils
         ;
       };
-      overlay = self.overlays.eez-studio;
+      overlay = self.overlays.flobo-display;
     } // eachSystem supportedSystems (system:
       let
         pkgs = import nixpkgs {
@@ -76,7 +76,7 @@
         checks = packages;
 
         packages = getAttrs packageNames pkgs;
-        defaultPackage = packages.eez-studio;
+        defaultPackage = packages.flobo-display;
 
         hydraJobs = {
           build = packages;

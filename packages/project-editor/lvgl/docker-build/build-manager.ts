@@ -2,7 +2,7 @@
  * Build Manager for Docker Simulator
  *
  * Orchestrates the Docker-based build process for LVGL projects,
- * integrating with the EEZ Studio UI to show progress and logs.
+ * integrating with the Flobo Display UI to show progress and logs.
  *
  * Multiple projects can be in Full Simulator mode simultaneously.
  * Each project has its own logs, preview state, and preview logs.
@@ -77,7 +77,7 @@ export class DockerBuildManager {
     private getBuildConfig(): BuildConfig {
         return {
             repositoryName: "lvgl-simulator-for-studio-docker-build",
-            dockerVolumeName: "eez-studio-lvgl-build",
+            dockerVolumeName: "flobo-display-lvgl-build",
             dockerBuildPath: this.getDockerBuildPath()
         };
     }
@@ -237,14 +237,14 @@ export class DockerBuildManager {
 
             if (dockerBuildState.isCancelled) return;
 
-            // Build the EEZ project first
+            // Build the Flobo Display project first
             runInAction(() => {
-                projectState.setBuilding("Building EEZ project...");
+                projectState.setBuilding("Building Flobo Display project...");
             });
 
             let lastRevisionStable = projectStore.lastRevisionStable;
 
-            logFn("Building EEZ project...", "info");
+            logFn("Building Flobo Display project...", "info");
             await projectStore.build();
 
             // Check if build produced errors
@@ -253,11 +253,11 @@ export class DockerBuildManager {
                     .numErrors > 0
             ) {
                 throw new Error(
-                    "EEZ project build failed with errors. Please fix the errors and try again."
+                    "Flobo Display project build failed with errors. Please fix the errors and try again."
                 );
             }
 
-            logFn("EEZ project built successfully", "success");
+            logFn("Flobo Display project built successfully", "success");
 
             if (dockerBuildState.isCancelled) return;
 

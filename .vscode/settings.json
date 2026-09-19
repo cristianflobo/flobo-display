@@ -2,8 +2,8 @@
     "files.exclude": {
         ".git": true,
         ".DS_Store": true,
-        "eezstudio-win32-x64": true,
-        "eezstudio-linux-x64": true,
+        "flobo-display-win32-x64": true,
+        "flobo-display-linux-x64": true,
         "node_modules": true,
         "libs": false,
         "build": false,

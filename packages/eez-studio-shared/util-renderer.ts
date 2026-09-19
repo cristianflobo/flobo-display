@@ -51,7 +51,7 @@ export async function confirmSave({
 
     let opts: Electron.MessageBoxOptions = {
         type: "warning",
-        title: "EEZ Studio",
+        title: "Flobo Display",
         message: "Do you want to save changes?",
         detail:
             description + "Your changes will be lost if you don't save them.",

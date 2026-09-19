@@ -196,7 +196,7 @@ const MasterView = observer(
                 properties: ["openFile"],
                 filters: [
                     {
-                        name: "EEZ Notebook files",
+                        name: "Flobo Display Notebook files",
                         extensions: ["eez-notebook"]
                     },
                     { name: "All Files", extensions: ["*"] }

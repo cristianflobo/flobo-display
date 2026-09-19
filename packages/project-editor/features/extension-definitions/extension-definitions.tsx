@@ -61,7 +61,7 @@ export class UseDashboardProject extends EezObject {
                 name: "projectFilePath",
                 type: PropertyType.RelativeFile,
                 fileFilters: [
-                    { name: "EEZ Project", extensions: ["eez-project"] },
+                    { name: "Flobo Display Project", extensions: ["eez-project"] },
                     { name: "All Files", extensions: ["*"] }
                 ],
                 isOptional: false

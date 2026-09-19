@@ -328,7 +328,7 @@ ipcMain.on("printPDF", (event: any, { content, options }: any) => {
             data = await printWindow.webContents.printToPDF(options);
         } catch (err: any) {
             await dialog.showMessageBox(senderWindow, {
-                title: "Print to PDF - EEZ Studio",
+                title: "Print to PDF - Flobo Display",
                 message: err.toString()
             });
         } finally {
@@ -348,7 +348,7 @@ ipcMain.on("printPDF", (event: any, { content, options }: any) => {
                 shell.openPath(filePath);
             } catch (err: any) {
                 await dialog.showMessageBox(senderWindow, {
-                    title: "Print to PDF - EEZ Studio",
+                    title: "Print to PDF - Flobo Display",
                     message: err.toString()
                 });
             }

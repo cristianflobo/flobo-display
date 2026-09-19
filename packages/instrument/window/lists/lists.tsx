@@ -429,7 +429,7 @@ export async function saveTableListData(
         defaultPath: listName
             ? getValidFileNameFromFileName(listName) + ".list"
             : undefined,
-        filters: [{ name: "EEZ List Files", extensions: ["list"] }]
+        filters: [{ name: "Flobo Display List Files", extensions: ["list"] }]
     });
     let filePath = result.filePath;
     if (filePath) {

@@ -9,13 +9,15 @@ import { Loader } from "eez-studio-ui/loader";
 import { isArray } from "eez-studio-shared/util";
 import { settingsController } from "home/settings";
 
-const STUDIO_RELEASES_URL =
-    "https://api.github.com/repos/eez-open/studio/releases";
-const STUDIO_SPECIFIC_RELEASE_URL =
-    "https://github.com/eez-open/studio/releases/tag/v";
-const STUDIO_HOME_PAGE_URL =
-    "https://www.envox.hr/eez/studio/studio-introduction.html";
-const STUDIO_GITHUB_PAGE_URL = "https://github.com/eez-open/studio";
+// This file is part of Flobo Display, a fork of EEZ Studio (https://github.com/eez-open/studio).
+// See NOTICE.TXT for the origin of this work and LICENSE.TXT for the license (GPL-3.0-only).
+
+const APP_RELEASES_URL =
+    "https://api.github.com/repos/cristianflobo/flobo-display/releases";
+const APP_SPECIFIC_RELEASE_URL =
+    "https://github.com/cristianflobo/flobo-display/releases/tag/v";
+const APP_HOME_PAGE_URL = "https://github.com/cristianflobo/flobo-display";
+const APP_GITHUB_PAGE_URL = "https://github.com/cristianflobo/flobo-display";
 
 const GET_LATEST_VERSION_MIN_DURATION = 1000;
 
@@ -29,7 +31,7 @@ async function getLatestVersion() {
     return new Promise<string>((resolve, reject) => {
         let req = new XMLHttpRequest();
         req.responseType = "json";
-        req.open("GET", STUDIO_RELEASES_URL);
+        req.open("GET", APP_RELEASES_URL);
 
         req.addEventListener("load", async () => {
             if (isArray(req.response)) {
@@ -147,7 +149,7 @@ const AboutBox = observer(
                                     onClick={event => {
                                         event.preventDefault();
                                         openLink(
-                                            STUDIO_SPECIFIC_RELEASE_URL +
+                                            APP_SPECIFIC_RELEASE_URL +
                                                 this.latestVersion
                                         );
                                     }}
@@ -194,7 +196,7 @@ const AboutBox = observer(
                                 onClick={event => {
                                     event.preventDefault();
                                     openLink(
-                                        STUDIO_SPECIFIC_RELEASE_URL +
+                                        APP_SPECIFIC_RELEASE_URL +
                                             this.packageJSON.version
                                     );
                                 }}
@@ -223,7 +225,7 @@ const AboutBox = observer(
                                 href="#"
                                 onClick={event => {
                                     event.preventDefault();
-                                    openLink(STUDIO_HOME_PAGE_URL);
+                                    openLink(APP_HOME_PAGE_URL);
                                 }}
                             >
                                 Home
@@ -233,7 +235,7 @@ const AboutBox = observer(
                                 href="#"
                                 onClick={event => {
                                     event.preventDefault();
-                                    openLink(STUDIO_GITHUB_PAGE_URL);
+                                    openLink(APP_GITHUB_PAGE_URL);
                                 }}
                             >
                                 GitHub

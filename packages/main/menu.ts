@@ -55,9 +55,9 @@ async function openProjectWithFileDialog(focusedWindow: BaseWindow) {
     const result = await dialog.showOpenDialog(focusedWindow, {
         properties: ["openFile"],
         filters: [
-            { name: "EEZ Project", extensions: ["eez-project"] },
+            { name: "Flobo Display Project", extensions: ["eez-project"] },
             {
-                name: "EEZ Dashboard",
+                name: "Flobo Display Dashboard",
                 extensions: ["eez-dashboard"]
             },
             { name: "All Files", extensions: ["*"] }
@@ -233,7 +233,7 @@ function buildFileMenu(win: IWindow | undefined) {
                             BrowserWindow.getFocusedWindow()!,
                             {
                                 type: "error",
-                                title: "EEZ Studio",
+                                title: "Flobo Display",
                                 message: "File does not exist.",
                                 detail: `The file '${mru.filePath}' does not seem to exist anymore.`
                             }
@@ -271,11 +271,11 @@ function buildFileMenu(win: IWindow | undefined) {
                         properties: ["openFile"],
                         filters: [
                             {
-                                name: "EEZ Debug Info",
+                                name: "Flobo Display Debug Info",
                                 extensions: ["eez-debug-info"]
                             },
                             {
-                                name: "EEZ Debug Info",
+                                name: "Flobo Display Debug Info",
                                 extensions: ["eez-debug-info"]
                             },
                             { name: "All Files", extensions: ["*"] }

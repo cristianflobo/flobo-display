@@ -1136,9 +1136,9 @@ export class Tabs {
                 if (this.activeTab) {
                     title = `${this.activeTab.modified ? MODIFED_MARK : ""}${
                         this.activeTab.titleStr
-                    } - EEZ Studio`;
+                    } - Flobo Display`;
                 } else {
-                    title = `EEZ Studio`;
+                    title = `Flobo Display`;
                 }
 
                 document.title = title;

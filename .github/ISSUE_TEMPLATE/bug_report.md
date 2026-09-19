@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve
 title: ''
 labels: bug, enhancement
-assignees: mvladic
+assignees: cristianflobo
 
 ---
 
@@ -34,4 +34,4 @@ If applicable, add screenshots to help explain your problem.
 Add any other context about the problem here.
 
 **Disclaimer**
-_Please take into account that the tasks reported here will be processed by the Envox team according to the best effort principle, so adjust your expectations accordingly. However, if you want a more prompt and high-quality response as well as direct contact with technical support, you can choose one of our [Support plans](https://www.envox.eu/support-plans/)._
+_Flobo Display is a fork of [EEZ Studio](https://github.com/eez-open/studio). Reports made in this repository are handled on a best-effort basis by the Flobo Display maintainers. Issues concerning the upstream EEZ Studio project itself, as well as premium technical support, are handled by the Envox team through the [EEZ Studio issue tracker](https://github.com/eez-open/studio/issues) and their [Support plans](https://www.envox.eu/support-plans/)._

@@ -701,7 +701,7 @@ export class ProjectStore {
                 const result = await dialog.showSaveDialog(getCurrentWindow(), {
                     filters: [
                         {
-                            name: "EEZ Project",
+                            name: "Flobo Display Project",
                             extensions: ["eez-project"]
                         },
                         { name: "All Files", extensions: ["*"] }

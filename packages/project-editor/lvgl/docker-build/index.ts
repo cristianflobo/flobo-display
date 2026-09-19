@@ -2,7 +2,7 @@
  * Docker Build Integration for LVGL Projects
  *
  * This module provides Docker Desktop-based building and testing
- * for LVGL projects in EEZ Studio.
+ * for LVGL projects in Flobo Display.
  */
 
 export * from "./docker-build-lib";

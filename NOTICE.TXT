@@ -1,0 +1,69 @@
+Flobo Display
+Fork of EEZ Studio - origin, modifications and licensing notice
+===============================================================
+
+This distribution ("Flobo Display") is a modified version (fork) of the
+software "EEZ Studio" (https://github.com/eez-open/studio), originally
+developed and copyrighted by Envox d.o.o. (https://www.envox.eu), and
+licensed under the GNU General Public License, version 3 (GPL-3.0-only).
+
+    Copyright (C) 2022 Envox d.o.o. - EEZ Studio
+    Flobo Display fork modifications (C) 2026 Flobo Display
+
+License (unchanged)
+-------------------
+This notice does NOT modify, replace or add any terms to the license. This
+work as a whole - including the modifications of the Flobo Display fork - is
+distributed under GPL-3.0-only:
+
+    - LICENSE.TXT               - GNU General Public License v3.0 (unmodified)
+    - THIRD-PARTY-LICENSES.TXT  - licenses of bundled third-party components (unmodified)
+
+Both files are kept unmodified with respect to the upstream project.
+
+Prominent notice of modification (GPL-3.0 section 5a)
+-----------------------------------------------------
+Flobo Display is a fork: the source code has been modified with respect to
+EEZ Studio. Principal modifications:
+
+    1. Rebranding of the product name from "EEZ Studio" to "Flobo Display"
+       (window titles, menus, dialogs, file dialog filters, About box,
+       HTML titles, installer metadata, package metadata and documentation).
+    2. Application identity: productName is now "Flobo Display" and the
+       application id is "com.flobo.display"; the npm package name is
+       "flobo-display".
+    3. About box links and the update check point to the Flobo Display
+       repository (https://github.com/cristianflobo/flobo-display).
+    4. Docker based LVGL simulator: image and volume names renamed to
+       "flobo-display-lvgl-build".
+    5. UI font families renamed to "Flobo Display Font" and
+       "Flobo Display Font Monospace".
+    6. Nix derivation and flake attribute renamed from "eez-studio" to
+       "flobo-display".
+
+Intentionally NOT renamed (compatibility and attribution)
+---------------------------------------------------------
+    - The GPL-3.0 license text (LICENSE.TXT) and the third-party license
+      notices (THIRD-PARTY-LICENSES.TXT).
+    - Project/file extensions (.eez-*) and their MIME types
+      (application/x-eez-*), so that existing projects remain compatible.
+    - Frameworks, engines and their public API: "EEZ Flow", "EEZ GUI" and
+      "EEZ GUI Lite" (eez-flow.h/.c/.cpp, eez-gui-lite.h/.c, EEZ_FLOW_* and
+      EEZ_GUI_LITE_* macros, project type names such as "LVGL with EEZ Flow").
+    - Internal package/folder names and import specifiers (eez-studio-shared,
+      eez-studio-ui, eez-studio-types, ...).
+    - Upstream attributions and links: Envox d.o.o., the EEZ Studio
+      documentation, the extensions catalog and third-party components
+      (LVGL, lv_font_conv, pdf.js, etc.).
+
+How to obtain the corresponding source code (GPL-3.0 section 6)
+---------------------------------------------------------------
+The complete corresponding source code of this distribution is available at:
+
+    https://github.com/cristianflobo/flobo-display
+
+The source code of the original work is available at:
+
+    https://github.com/eez-open/studio
+
+Modification date: 2026-09-19

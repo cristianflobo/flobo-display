@@ -1,6 +1,6 @@
 services:
     emscripten-build:
-        image: eez-studio-lvgl-build:latest
+        image: flobo-display-lvgl-build:latest
         build: .
         pull_policy: never
         volumes:
@@ -10,4 +10,4 @@ services:
 
 volumes:
     project-volume:
-        name: ${PROJECT_VOLUME:-eez-lvgl-build-default}
+        name: ${PROJECT_VOLUME:-flobo-display-lvgl-build-default}

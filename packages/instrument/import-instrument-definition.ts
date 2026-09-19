@@ -148,7 +148,7 @@ export function importInstrumentDefinition(
                         ) + ".eez-project",
                     filters: [
                         {
-                            name: "EEZ Project",
+                            name: "Flobo Display Project",
                             extensions: ["eez-project"]
                         },
                         { name: "All Files", extensions: ["*"] }

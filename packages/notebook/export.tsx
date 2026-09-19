@@ -217,7 +217,7 @@ export async function exportActivityLogItems(
 ) {
     const result = await dialog.showSaveDialog(getCurrentWindow(), {
         filters: [
-            { name: "EEZ Notebook files", extensions: ["eez-notebook"] },
+            { name: "Flobo Display Notebook files", extensions: ["eez-notebook"] },
             { name: "All Files", extensions: ["*"] }
         ]
     });

@@ -57,7 +57,7 @@ export const ChangesTab = observer(
             const result = await dialog.showOpenDialog(getCurrentWindow(), {
                 properties: ["openFile"],
                 filters: [
-                    { name: "EEZ Project", extensions: ["eez-project"] },
+                    { name: "Flobo Display Project", extensions: ["eez-project"] },
                     { name: "All Files", extensions: ["*"] }
                 ]
             });

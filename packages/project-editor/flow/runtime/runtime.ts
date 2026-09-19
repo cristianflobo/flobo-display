@@ -756,7 +756,7 @@ export abstract class RuntimeBase implements IRuntime {
             defaultPath,
             filters: [
                 {
-                    name: "EEZ Debug Info",
+                    name: "Flobo Display Debug Info",
                     extensions: ["eez-debug-info"]
                 },
                 { name: "All Files", extensions: ["*"] }

@@ -503,7 +503,7 @@ export class ImportDirective extends EezObject {
                 name: "projectFilePath",
                 type: PropertyType.RelativeFile,
                 fileFilters: [
-                    { name: "EEZ Project", extensions: ["eez-project"] },
+                    { name: "Flobo Display Project", extensions: ["eez-project"] },
                     { name: "All Files", extensions: ["*"] }
                 ],
                 isOptional: false
@@ -927,7 +927,7 @@ export class General extends EezObject {
                 name: "masterProject",
                 type: PropertyType.RelativeFile,
                 fileFilters: [
-                    { name: "EEZ Project", extensions: ["eez-project"] },
+                    { name: "Flobo Display Project", extensions: ["eez-project"] },
                     { name: "All Files", extensions: ["*"] }
                 ],
                 disabled: (general: General) => {

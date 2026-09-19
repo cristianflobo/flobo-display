@@ -46,6 +46,10 @@ async function getExtraResource() {
                 to: "."
             },
             {
+                from: "./NOTICE.TXT",
+                to: "."
+            },
+            {
                 from: "./THIRD-PARTY-LICENSES.TXT",
                 to: "."
             }
@@ -53,7 +57,7 @@ async function getExtraResource() {
     ];
 }
 
-const productName = "EEZ Studio";
+const productName = "Flobo Display";
 
 let files = [
     "build/**",
@@ -63,6 +67,7 @@ let files = [
     "icon.ico",
     "icon.png",
     "LICENSE.TXT",
+    "NOTICE.TXT",
     "THIRD-PARTY-LICENSES.TXT",
     "node_modules/**",
     "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
@@ -104,8 +109,9 @@ files.push(
 
 (async function () {
     const config: any = {
-        appId: "hr.envox.eez.studio",
-        copyright: "Copyright © 2022 Envox d.o.o.",
+        appId: "com.flobo.display",
+        copyright:
+            "Copyright © 2022 Envox d.o.o. (EEZ Studio). Flobo Display fork modifications © 2026 Flobo Display.",
         productName,
 
         nodeGypRebuild: false,
@@ -123,13 +129,13 @@ files.push(
         fileAssociations: [
             {
                 ext: "eez-project",
-                name: "EEZ Studio Project",
+                name: "Flobo Display Project",
                 role: "Editor",
                 mimeType: "application/x-eez-project"
             },
             {
                 ext: "eez-dashboard",
-                name: "EEZ Dashboard",
+                name: "Flobo Display Dashboard",
                 role: "Editor",
                 mimeType: "application/x-eez-dashboard"
             }
@@ -209,7 +215,7 @@ files.push(
             category: "Utility",
             synopsis: packageJson.description,
             description:
-                "EEZ Studio is a free and open source cross-platform low-code tool for embedded GUIs. Built-in EEZ Flow enables the creation of complex scenarios for test and measurement automation, and the Instruments feature offers remote control of multiple T&M equipment.",
+                "Flobo Display is a free and open source cross-platform low-code tool for embedded GUIs, based on EEZ Studio. Built-in EEZ Flow enables the creation of complex scenarios for test and measurement automation, and the Instruments feature offers remote control of multiple T&M equipment.",
             mimeTypes: ["application/x-eez-project"]
         }
     };

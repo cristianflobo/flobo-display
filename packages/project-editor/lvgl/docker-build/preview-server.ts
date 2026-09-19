@@ -2,7 +2,7 @@
  * Preview Server for Docker Simulator
  *
  * Serves the built LVGL WebAssembly application via a local HTTP server
- * for preview in an iframe within the EEZ Studio application.
+ * for preview in an iframe within the Flobo Display application.
  */
 
 import * as http from "http";

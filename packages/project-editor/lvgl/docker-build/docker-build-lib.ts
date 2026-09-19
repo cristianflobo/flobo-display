@@ -1,5 +1,5 @@
 /**
- * Docker Build Library for EEZ Projects
+ * Docker Build Library for Flobo Display Projects
  *
  * Core functionality for Docker-based builds separated from CLI interface
  */
@@ -401,7 +401,7 @@ export function buildProjectInfoFromProjectData(
 }
 
 /**
- * Read and parse the EEZ project file
+ * Read and parse the Flobo Display project file
  */
 export async function readProjectFile(
     projectPath: string,
