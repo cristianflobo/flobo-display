@@ -124,7 +124,7 @@ interface IProjectType {
 
 // Base URL for eez-project-templates on GitHub
 const EEZ_PROJECT_TEMPLATES_BASE_URL =
-    "https://raw.githubusercontent.com/eez-open/eez-project-templates/master/";
+    "https://raw.githubusercontent.com/cristianflobo/flobo-display-template/main/";
 
 // Helper function to convert GitHub URL to local path if local templates are enabled
 function getTemplatePathOrUrl(relativePath: string): string {
@@ -739,25 +739,25 @@ export class WizardModel {
         return [
             {
                 id: "LVGL",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.LVGL],
+                projectType: 'Display',
                 image: LVGL_PROJECT_ICON(128),
-                projectName: "LVGL",
-                description: "Start your new LVGL project development here.",
+                projectName: "FLOBO 480x480",
+                description: "Start your new project development here in scren size 480x480",
                 projectFileUrl: {
                     "8.4.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL-8.3.eez-project"
+                        "v1.0.0/flobo480480-8.3.eez-project"
                     ),
                     "9.2.2": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL-9.0.eez-project"
+                        "v1.0.0/flobo480480-9.0.eez-project"
                     ),
                     "9.3.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL-9.0.eez-project"
+                        "v1.0.0/flobo480480-9.0.eez-project"
                     ),
                     "9.4.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL-9.0.eez-project"
+                        "v1.0.0/flobo480480-9.0.eez-project"
                     ),
                     "9.5.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL-9.0.eez-project"
+                        "v1.0.0/flobo480480-9.0.eez-project"
                     )
                 }
             },
