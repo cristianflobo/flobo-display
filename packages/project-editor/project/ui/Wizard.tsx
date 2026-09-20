@@ -30,7 +30,7 @@ import { stringCompare } from "eez-studio-shared/string";
 
 import { showDialog } from "eez-studio-ui/dialog";
 import { Loader } from "eez-studio-ui/loader";
-import { ITreeNode, Tree } from "eez-studio-ui/tree";
+import { ITreeNode } from "eez-studio-ui/tree";
 import { SearchInput } from "eez-studio-ui/search-input";
 import { Icon } from "eez-studio-ui/icon";
 
@@ -38,14 +38,7 @@ import { openProject } from "home/tabs-store";
 import { settingsController } from "home/settings";
 
 import {
-    DASHBOARD_PROJECT_ICON,
-    EEZ_GUI_PROJECT_ICON,
     LVGL_PROJECT_ICON,
-    LVGL_WITH_FLOW_PROJECT_ICON,
-    MICROPYTHON_ICON,
-    APPLET_ICON,
-    IEXT_PROJECT_ICON,
-    EEZ_GUI_LITE_PROJECT_ICON
 } from "project-editor/ui-components/icons";
 import {
     EEZ_PROJECT_EXAMPLES_REPOSITORY,
@@ -143,6 +136,7 @@ function getTemplatePathOrUrl(relativePath: string): string {
         return path.join(settingsController.localTemplatesPath, relativePath);
     }
     // Use GitHub URL
+    console.log("Using GitHub URL for template:", EEZ_PROJECT_TEMPLATES_BASE_URL + relativePath);
     return EEZ_PROJECT_TEMPLATES_BASE_URL + relativePath;
 }
 
@@ -298,7 +292,6 @@ export class WizardModel {
             searchText: observable,
             onSearchChange: action.bound,
             standardProjectTypes: computed,
-            bb3ProjectTypes: computed,
             templateProjectTypes: computed,
             allTemplateProjectTypes: computed,
             changeFolder: action.bound,
@@ -745,27 +738,6 @@ export class WizardModel {
     get standardProjectTypes(): IProjectType[] {
         return [
             {
-                id: "dashboard",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.DASHBOARD],
-                image: DASHBOARD_PROJECT_ICON(128),
-                projectName: "Dashboard",
-                description:
-                    "Start your new Dashboard project development here.",
-                projectFileUrl: getTemplatePathOrUrl(
-                    "templates/dashboard.eez-project"
-                )
-            },
-            {
-                id: "firmware",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.FIRMWARE],
-                image: EEZ_GUI_PROJECT_ICON(128),
-                projectName: "EEZ-GUI",
-                description: "Start your new EEZ-GUI project development here.",
-                projectFileUrl: getTemplatePathOrUrl(
-                    "templates/firmware.eez-project"
-                )
-            },
-            {
                 id: "LVGL",
                 projectType: PROJECT_TYPE_NAMES[ProjectType.LVGL],
                 image: LVGL_PROJECT_ICON(128),
@@ -789,85 +761,11 @@ export class WizardModel {
                     )
                 }
             },
-            {
-                id: "LVGL with EEZ Flow",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.LVGL],
-                image: LVGL_WITH_FLOW_PROJECT_ICON(128),
-                projectName: "LVGL with EEZ Flow",
-                description:
-                    "Start your new LVGL with EEZ Flow project development here.",
-                projectFileUrl: {
-                    "8.4.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL with EEZ Flow-8.3.eez-project"
-                    ),
-                    "9.2.2": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL with EEZ Flow-9.0.eez-project"
-                    ),
-                    "9.3.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL with EEZ Flow-9.0.eez-project"
-                    ),
-                    "9.4.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL with EEZ Flow-9.0.eez-project"
-                    ),
-                    "9.5.0": getTemplatePathOrUrl(
-                        "templates/v0.23.0/LVGL with EEZ Flow-9.0.eez-project"
-                    )
-                }
-            },
-            {
-                id: "IEXT",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.IEXT],
-                image: IEXT_PROJECT_ICON(128),
-                projectName: "IEXT",
-                description: "Start your new IEXT project development here.",
-                projectFileUrl: {
-                    SCPI: getTemplatePathOrUrl("templates/IEXT.eez-project"),
-                    PROPRIETARY: getTemplatePathOrUrl(
-                        "templates/IEXT - PROPRIETARY.eez-project"
-                    )
-                }
-            },
-            {
-                id: "EEZ-GUI Lite",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.EEZ_GUI_LITE],
-                image: EEZ_GUI_LITE_PROJECT_ICON(128),
-                projectName: "EEZ-GUI Lite",
-                description: "Start your new EEZ-GUI Lite project development here.",
-                projectFileUrl: getTemplatePathOrUrl(
-                    "templates/eez-gui-lite.eez-project"
-                )
-            }
-        ].filter(projectType => this.searchFilter(projectType));
-    }
-
-    get bb3ProjectTypes(): IProjectType[] {
-        return [
-            {
-                id: "applet",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.APPLET],
-                image: APPLET_ICON(128),
-                projectName: "BB3 Applet",
-                description:
-                    "Start your new BB3 Applet project development here.",
-                projectFileUrl: getTemplatePathOrUrl(
-                    "templates/applet.eez-project"
-                )
-            },
-            {
-                id: "resource",
-                projectType: PROJECT_TYPE_NAMES[ProjectType.RESOURCE],
-                image: MICROPYTHON_ICON(128),
-                projectName: "BB3 MicroPython Script",
-                description:
-                    "Start your new BB3 MicroPython project development here.",
-                projectFileUrl: getTemplatePathOrUrl(
-                    "templates/resource.eez-project"
-                )
-            }
         ].filter(projectType => this.searchFilter(projectType));
     }
 
     get templateProjectTypes(): IProjectType[] {
+        return []
         return this.templateProjects
             .map(templateProject => ({
                 id: templateProject.clone_url,
@@ -894,7 +792,6 @@ export class WizardModel {
     get allTemplateProjectTypes(): IProjectType[] {
         return [
             ...this.standardProjectTypes,
-            ...this.bb3ProjectTypes,
             ...this.templateProjectTypes
         ];
     }
@@ -932,23 +829,6 @@ export class WizardModel {
                     ),
                     children: [],
                     selected: this.folder == "_standard",
-                    expanded: true,
-                    data: undefined
-                });
-            }
-
-            if (this.bb3ProjectTypes.length > 0) {
-                children.push({
-                    id: "_bb3",
-                    label: (
-                        <Count
-                            label="BB3 Script Templates"
-                            count={this.bb3ProjectTypes.length}
-                            attention={false}
-                        ></Count>
-                    ),
-                    children: [],
-                    selected: this.folder == "_bb3",
                     expanded: true,
                     data: undefined
                 });
@@ -1008,8 +888,6 @@ export class WizardModel {
                 return this.allTemplateProjectTypes;
             } else if (this.folder == "_standard") {
                 return this.standardProjectTypes;
-            } else if (this.folder == "_bb3") {
-                return this.bb3ProjectTypes;
             } else {
                 return this.templateProjectTypes;
             }
@@ -1880,23 +1758,6 @@ export class WizardModel {
 
 export const wizardModelTemplates = WizardModel.makeTemplatesWizardModel();
 export const wizardModelExamples = WizardModel.makeExamplesWizardModel();
-
-const FoldersTree = observer(
-    class FoldersTree extends React.Component<{ wizardModel: WizardModel }> {
-        render() {
-            return (
-                <Tree
-                    rootNode={this.props.wizardModel.folders}
-                    selectNode={node => {
-                        this.props.wizardModel.changeFolder(node.id);
-                    }}
-                    showOnlyChildren={true}
-                    style={{ height: "100%", overflow: "auto" }}
-                />
-            );
-        }
-    }
-);
 
 const ProjectTypesList = observer(
     class ProjectTypesList extends React.Component<{
@@ -2778,7 +2639,6 @@ export const NewProjectWizard = observer(
                         {wizardModel.folders.children.length > 0 ? (
                             <>
                                 <div className="EezStudio_NewProjectWizard_Space"></div>
-                                <FoldersTree wizardModel={wizardModel} />
                                 <ProjectTypesList wizardModel={wizardModel} />
                                 <ProjectProperties
                                     wizardModel={wizardModel}

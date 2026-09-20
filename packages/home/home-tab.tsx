@@ -12,8 +12,7 @@ import {
     wizardModelExamples
 } from "project-editor/project/ui/Wizard";
 import {
-    ExtensionsManager,
-    extensionsManagerStore
+    ExtensionsManager
 } from "./extensions-manager/extensions-manager";
 import { Projects } from "home/open-projects";
 import { Instruments, defaultInstrumentsStore } from "home/instruments";
@@ -87,12 +86,6 @@ const HOME_TAB_EXAMPLES_ICON = (
         <path d="M20 2v12l10-6-10-6z" />
         <path d="M28 14v8H4V6h10V4H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8v4H8v2h16v-2h-4v-4h8a2 2 0 0 0 2-2v-8h-2ZM18 28h-4v-4h4v4Z" />
         <path d="M0 0h32v32H0z" fill="none" />
-    </svg>
-);
-
-const HOME_TAB_INSTRUMENTS_ICON = (
-    <svg viewBox="-50 -50 1124 1124" fill="currentcolor">
-        <path d="M128 896h896v128H0V0h128v896zm18.4-450.2 236.6-.2L443 205h81l74.4 318.6L662.6 314l81.4-.6L796.6 448l226.8-2.4.4 84H746.4l-41-104.2-60 289h-75l-89.6-333.2-32.6 148.4-301.8.2v-84z" />
     </svg>
 );
 
@@ -170,50 +163,6 @@ export const Home = observer(
                             >
                                 <Icon icon="material:apps" size={32} /> Run
                             </div>*/}
-                            <div
-                                className={classNames(
-                                    "EezStudio_HomeTab_NavigationItem",
-                                    {
-                                        selected:
-                                            homeTabStore.activeTab ==
-                                            "instruments"
-                                    }
-                                )}
-                                onClick={action(() => {
-                                    homeTabStore.activeTab = "instruments";
-                                })}
-                                title="Instruments manager"
-                            >
-                                <Icon
-                                    icon={HOME_TAB_INSTRUMENTS_ICON}
-                                    size={32}
-                                />{" "}
-                                Instruments
-                            </div>
-                            <div
-                                className={classNames(
-                                    "EezStudio_HomeTab_NavigationItem",
-                                    {
-                                        selected:
-                                            homeTabStore.activeTab ==
-                                            "extensions"
-                                    }
-                                )}
-                                onClick={action(() => {
-                                    homeTabStore.activeTab = "extensions";
-                                })}
-                                title="Extensions manager"
-                            >
-                                <Icon
-                                    icon={"material:extension"}
-                                    size={32}
-                                    attention={
-                                        extensionsManagerStore
-                                            .newVersionsInAllSections.length > 0
-                                    }
-                                />
-                                Extensions
-                            </div>
                             <div
                                 className={classNames(
                                     "EezStudio_HomeTab_NavigationItem",
