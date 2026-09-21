@@ -28,13 +28,3 @@ export function reloadProject() {
         homeWindow.browserWindow.webContents.send("reload-project");
     }
 }
-
-export function importInstrumentDefinitionFile(filePath: string) {
-    let homeWindow = findWindowByParams(HOME_WINDOW_PARAMS);
-    if (homeWindow) {
-        homeWindow.browserWindow.webContents.send(
-            "importInstrumentDefinitionFile",
-            filePath
-        );
-    }
-}
